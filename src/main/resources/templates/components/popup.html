@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="popup_banner" class="popup_banner">
+    <span class="popup_off_banner">×</span>
+    <div class="banner_popup_area">
+        <img th:src="@{img\banner\pop-banner.jpg}" alt="">
+    </div>
+</div>
+<div th:fragment="popup_wrapper" class="popup_wrapper">
+    <div class="test">
+        <span class="popup_off">Close</span>
+        <div class="subscribe_area text-center mt-60">
+            <h2>Newsletter</h2>
+            <p>Subscribe to the Truemart mailing list to receive updates on new arrivals, special offers and other discount information.</p>
+            <div class="subscribe-form-group">
+                <form action="#">
+                    <input autocomplete="off" type="text" name="message" id="message" placeholder="Enter your email address">
+                    <button type="submit" disabled>subscribe</button>
+                </form>
+            </div>
+            <div class="subscribe-bottom mt-15">
+                <input type="checkbox" id="newsletter-permission">
+                <label for="newsletter-permission">Don't show this popup again</label>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,363 @@
+﻿<!doctype html>
+<html class="no-js" lang="zxx" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+
+<div th:replace="components/head :: head">
+
+</div>
+
+<body>
+    <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    <!-- Main Wrapper Start Here -->
+    <div class="wrapper">
+        <!-- Banner Popup Start -->
+        <div th:insert="components/popup :: popup_banner"></div>
+        <!-- Banner Popup End -->
+        <!-- Newsletter Popup Start -->
+        <div th:insert="components/popup :: popup_wrapper"></div>
+        <!-- Newsletter Popup End -->
+        <!-- Main Header Area Start Here -->
+        <div th:replace="components/header :: header"></div>
+        <!-- Main Header Area End Here -->
+        <!-- Categorie Menu & Slider Area Start Here -->
+        <div th:insert="components/category_menu :: category_menu"></div>
+        <!-- Categorie Menu & Slider Area End Here -->
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-area mt-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul class="d-flex align-items-center">
+                        <li><a th:href="@{/}">Home</a></li>
+                        <li class="active"><a th:href="@{/checkout}">Checkout</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->
+
+        <form id="cform" th:action="@{/checkout}"   method="POST" th:object="${billdto}">
+            <input type="text" th:value="${billdto.user_email}" th:field="*{user_email}"  hidden />
+            <input type="text" th:field="*{ordertotal}" th:value="${billdto.ordertotal}" hidden />
+            <input type="text" th:field="*{subtotal}" th:value="${billdto.subtotal}" hidden />
+        <!-- checkout-area start -->
+        <div class="checkout-area pb-15 pt-80 pb-sm-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="checkbox-form mb-sm-40">
+                            <h3>Billing Details</h3>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="country-select clearfix mb-30">
+                                        <label>Country <span class="required">*</span></label>
+                                        <select class="wide" th:field="*{country}">
+                                            <option value="volvo" th:each="country : ${countries}" th:value="${country}" th:text="${country}">Bangladesh</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list mb-sm-30">
+                                        <label >First Name <span class="required">*</span></label>
+                                        <input  name="firstName" type="text"  th:field="*{firstName}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list mb-30">
+                                        <label >Last Name <span class="required">*</span></label>
+                                        <input name="lastName" type="text"  th:field="*{lastName}">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="checkout-form-list mb-30">
+                                        <label >Company Name</label>
+                                        <input  type="text" placeholder="" th:field="*{companyName}">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="checkout-form-list">
+                                        <label for="address">Address <span class="required">*</span></label>
+                                        <input  id="address" name="address" type="text" placeholder="Street address" th:field="*{address}">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="checkout-form-list mtb-30">
+                                        <input  type="text" placeholder="Apartment, suite, unit etc. (optional)" th:field="*{addressOption}">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="checkout-form-list mb-30">
+                                        <label >Town / City <span class="required">*</span></label>
+                                        <input  name="town_city" type="text" placeholder="Town / City" th:field="*{town_city}">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list mb-30">
+                                        <label for="email">Email Notification <span class="required">*</span></label>
+                                        <input id="email" type="email" name="email_notification" placeholder="Email Notification" th:field="*{email_notification}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list mb-30">
+                                        <label for="phone">Phone  <span class="required">*</span></label>
+                                        <input id="phone" name="phone" type="text" placeholder="Mobile Phone / Contact number" th:field="*{phone}">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="checkout-form-list mb-30">
+                                        <label>Payment Type <span class="required">*</span></label>
+                                        <select id="payment_selectbox" class="wide" th:field="*{payment}">
+                                            <option value="volvo" th:each="country : ${payments}" th:value="${country}" th:text="${country}">Payment</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6" id="payment_sub_box" style="display: none">
+                                    <div class="checkout-form-list mb-30">
+                                        <p> this payment method is not currently supported, Indirect payment will be choose as default.  </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="your-order">
+                            <h3>Your order</h3>
+                            <div class="your-order-table table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="product-name">Product</th>
+                                            <th class="product-total">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="cart_item" th:each="bitem,itr : *{items}">
+                                            <input type="number" th:field="*{items[__${itr.index}__].pnsid}" th:value="${bitem.pnsid}" hidden />
+                                            <input type="number" th:field="*{items[__${itr.index}__].quantities}" th:value="${bitem.quantities}" hidden />
+
+                                            <td class="product-name" >
+                                                <span th:text="${bitem.product_name}"> Vestibulum suscipit </span>
+                                                <span class="product-quantity" th:text="| x ${bitem.quantities}|"> × 1</span>
+                                            </td>
+                                            <td class="product-total" >
+                                                <span class="amount" th:text="${bitem.price}">£165.00</span>
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                    <tfoot>
+                                        <tr class="cart-subtotal">
+                                            <th>Cart Subtotal</th>
+                                            <td><span class="amount" th:text="${billdto.subtotal}">£215.00</span></td>
+                                        </tr>
+                                        <tr class="cart-subtotal">
+                                            <th>Shipping</th>
+                                            <td><span class="amount" th:text="${billdto.shipping_price}">$0.00</span></td>
+                                        </tr>
+                                        <tr class="cart-subtotal">
+                                            <th>Taxes</th>
+                                            <td><span class="amount" th:text="${billdto.taxes}" >$0.00</span></td>
+                                        </tr>
+                                        <tr class="order-total">
+                                            <th>Order Total</th>
+                                            <td><span class=" total amount" th:text="${billdto.ordertotal}">£215.00</span>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- checkout-area end -->
+        <!-- coupon-area start -->
+        <div class="coupon-area pt-20 pt-sm-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="coupon-accordion">
+                            <!-- ACCORDION START -->
+                            <!-- ACCORDION END -->
+                            <!-- ACCORDION START -->
+                            <h3>Have a coupon? <span id="showcoupon">Click here to enter your code</span></h3>
+                            <div id="checkout_coupon" class="coupon-checkout-content">
+                                <div class="coupon-info">
+
+                                        <p class="checkout-coupon">
+                                            <input type="text" class="code" placeholder="Coupon code" th:field="*{coupon}">
+                                        </p>
+
+                                </div>
+                            </div>
+                            <!-- ACCORDION END -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- coupon-area end -->
+        <div class="proceed-area pb-80 pt-sm-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="wc-proceed-to-checkout">
+                            <input type="submit" value="Checkout" class="return-customer-btn"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        <!-- Support Area Start Here -->
+        <div class="support-area bdr-top">
+            <div class="container">
+                <div class="d-flex flex-wrap text-center">
+                    <div class="single-support">
+                        <div class="support-icon">
+                            <i class="lnr lnr-gift"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Great Value</h6>
+                            <span>Nunc id ante quis tellus faucibus dictum in eget.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                            <i class="lnr lnr-rocket"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Worlwide Delivery</h6>
+                            <span>Quisque posuere enim augue, in rhoncus diam dictum non</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-lock"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Safe Payment</h6>
+                            <span>Duis suscipit elit sem, sed mattis tellus accumsan.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-enter-down"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Shop Confidence</h6>
+                            <span>Faucibus dictum suscipit eget metus. Duis  elit sem, sed.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-users"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>24/7 Help Center</h6>
+                            <span>Quisque posuere enim augue, in rhoncus diam dictum non.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Support Area End Here -->
+        <!-- Footer Area Start Here -->
+        <div th:replace="components/footer :: footer"></div>
+        <!-- Footer Area End Here -->
+        <!-- Quick View Content Start -->
+
+        <!-- Quick View Content End -->
+    </div>
+    <!-- Main Wrapper End Here -->
+
+    <!-- jquery 3.2.1 -->
+    <script src="js\vendor\jquery-3.2.1.min.js"></script>
+    <!-- Countdown js -->
+    <script src="js\jquery.countdown.min.js"></script>
+    <!-- Mobile menu js -->
+    <script src="js\jquery.meanmenu.min.js"></script>
+    <!-- ScrollUp js -->
+    <script src="js\jquery.scrollUp.js"></script>
+    <!-- Nivo slider js -->
+    <script src="js\jquery.nivo.slider.js"></script>
+    <!-- Fancybox js -->
+    <script src="js\jquery.fancybox.min.js"></script>
+    <!-- Jquery nice select js -->
+    <script src="js\jquery.nice-select.min.js"></script>
+    <!-- Jquery ui price slider js -->
+    <script src="js\jquery-ui.min.js"></script>
+    <!-- Owl carousel -->
+    <script src="js\owl.carousel.min.js"></script>
+    <!-- Bootstrap popper js -->
+    <script src="js\popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js\bootstrap.min.js"></script>
+    <!-- Plugin js -->
+    <script src="js\plugins.js"></script>
+    <!-- Main activaion js -->
+    <script src="js\main.js"></script>
+    <script src="js\jquery.validate.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("#cform").validate({
+                rules: {
+                    "firstName": {
+                        required: true,
+                    },
+                    "lastName": {
+                        required: true,
+                    },
+                    "email_notification": {
+                        required: true,
+                        email: true,
+                    },
+                    "phone": {
+                        required: true,
+                    },
+                    "address": {
+                        required: true,
+                    },
+                    "town_city": {
+                        required: true
+                    }
+                },
+                messages: {
+                    "firstName": {
+                        required: "Firstname must be required",
+                    },
+                    "lastName": {
+                        required: "Lastname must be required",
+                    },
+                    "email_notification": {
+                        required: "Email must be required",
+                        email: "Email type is not correct"
+                    },
+                    "phone": {
+                        required: "Phone number must be required"
+                    },
+                    "address": {
+                        required: "Address must be required",
+                    },
+                    "town_city": {
+                        required: "Town / City must be required "
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

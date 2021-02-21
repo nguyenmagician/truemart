@@ -1,0 +1,211 @@
+﻿<!doctype html>
+<html lass="no-js" lang="zxx" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<div th:replace="components/head :: head"> </div>
+<body>
+    <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    <!-- Main Wrapper Start Here -->
+    <div class="wrapper">
+        <!-- Banner Popup Start -->
+        <div th:insert="components/popup :: popup_banner"></div>
+        <!-- Banner Popup End -->
+        <!-- Newsletter Popup Start -->
+        <div th:insert="components/popup :: popup_wrapper"></div>
+        <!-- Newsletter Popup End -->
+        <!-- Main Header Area Start Here -->
+        <div th:replace="components/header :: header"></div>
+        <!-- Main Header Area End Here -->
+        <!-- Categorie Menu & Slider Area Start Here -->
+        <div th:insert="components/category_menu :: category_menu"></div>
+        <!-- Categorie Menu & Slider Area End Here -->
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-area mt-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul class="d-flex align-items-center">
+                        <li><a th:href="@{/}">Home</a></li>
+                        <li class="active"><a th:href="@{/compare}">Compare Product</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->       
+         <!-- Compare Page Start -->
+        <div class="compare-product ptb-100 ptb-sm-60">
+            <div class="container">
+                <div class="table-responsive-sm">
+                    <table class="table text-center compare-content">
+                        <tbody>
+                            <tr>
+                                <td class="product-title">Product</td>
+                                <td class="product-description" th:each="p : ${compare.compareItemDTOList}">
+                                    <div class="compare-details">
+                                        <div class="compare-detail-img">
+                                            <a th:href="@{${p.url}}"><img th:src="@{${p.image_url}}" alt="compare-product" class="compare-img"/></a>
+                                        </div>
+                                        <div class="compare-detail-content">
+                                            <h4><a th:href="@{${p.url}}" th:text="${p.product_name}">Concord Fabric Single</a></h4>
+                                        </div>
+                                    </div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="product-title">Description</td>
+                                <td class="product-description" th:each="p : ${compare.compareItemDTOList}">
+                                    <p th:text="${p.short_detail}">Impressively thin and light, the HP EliteBook 840 empowers users to create, connect, and collaborate, using enterprise-class performance</p>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="product-title" >Price</td>
+                                <td class="product-description" th:each="p : ${compare.compareItemDTOList}" th:text="${p.price}">$235</td>
+
+                            </tr>
+
+                            <tr>
+                                <td class="product-title">Stock</td>
+                                <td class="product-description" th:each="p : ${compare.compareItemDTOList}" >
+                                    <span th:if="${p.isStockable()}"> In Stock</span>
+                                    <span th:unless="${p.isStockable()}"> Stock Out</span>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="product-title">Add to cart</td>
+                                <td class="product-description" th:each="p : ${compare.compareItemDTOList}">
+                                    <div>
+                                        <a class="compare-cart text-uppercase AC color-white" > + add to cart</a>
+                                        <input type="text" class="AC_product_id" th:value="${p.id}" hidden>
+                                        <input type="text" class="AC_email" th:value="${user_email}" hidden>
+                                    </div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="product-title">Delete</td>
+                                <td class="product-description" th:each="p : ${compare.compareItemDTOList}">
+                                    <form th:action="@{/compare}" method="post">
+                                        <input type="number" name="d" th:value="${p.id}" hidden>
+                                        <input type="text" name="e" th:value="${encrypt_email}" hidden>
+                                        <button type="submit" style="border:none;padding:0;background-color:transparent"> <i class="fa fa-trash-o"></i></button>
+                                    </form>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="product-title">Rating</td>
+
+                                <td class="product-description" th:each="p : ${compare.compareItemDTOList}">
+                                    <div class="product-rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Compare Page End -->
+        <!-- Support Area Start Here -->
+        <div class="support-area bdr-top">
+            <div class="container">
+                <div class="d-flex flex-wrap text-center">
+                    <div class="single-support">
+                        <div class="support-icon">
+                            <i class="lnr lnr-gift"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Great Value</h6>
+                            <span>Nunc id ante quis tellus faucibus dictum in eget.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                            <i class="lnr lnr-rocket"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Worlwide Delivery</h6>
+                            <span>Quisque posuere enim augue, in rhoncus diam dictum non</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-lock"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Safe Payment</h6>
+                            <span>Duis suscipit elit sem, sed mattis tellus accumsan.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-enter-down"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Shop Confidence</h6>
+                            <span>Faucibus dictum suscipit eget metus. Duis  elit sem, sed.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-users"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>24/7 Help Center</h6>
+                            <span>Quisque posuere enim augue, in rhoncus diam dictum non.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Support Area End Here -->
+        <!-- Footer Area Start Here -->
+        <div th:replace="components/footer :: footer"></div>
+        <!-- Footer Area End Here -->
+        <!-- Quick View Content Start -->
+
+        <!-- Quick View Content End -->
+    </div>
+    <!-- Main Wrapper End Here -->
+
+    <!-- jquery 3.2.1 -->
+    <script src="js\vendor\jquery-3.2.1.min.js"></script>
+    <!-- Countdown js -->
+    <script src="js\jquery.countdown.min.js"></script>
+    <!-- Mobile menu js -->
+    <script src="js\jquery.meanmenu.min.js"></script>
+    <!-- ScrollUp js -->
+    <script src="js\jquery.scrollUp.js"></script>
+    <!-- Nivo slider js -->
+    <script src="js\jquery.nivo.slider.js"></script>
+    <!-- Fancybox js -->
+    <script src="js\jquery.fancybox.min.js"></script>
+    <!-- Jquery nice select js -->
+    <script src="js\jquery.nice-select.min.js"></script>
+    <!-- Jquery ui price slider js -->
+    <script src="js\jquery-ui.min.js"></script>
+    <!-- Owl carousel -->
+    <script src="js\owl.carousel.min.js"></script>
+    <!-- Bootstrap popper js -->
+    <script src="js\popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js\bootstrap.min.js"></script>
+    <!-- Plugin js -->
+    <script src="js\plugins.js"></script>
+    <!-- Main activaion js -->
+    <script src="js\main.js"></script>
+</body>
+
+</html>

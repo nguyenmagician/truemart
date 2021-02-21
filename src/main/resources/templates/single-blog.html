@@ -1,0 +1,374 @@
+﻿<!doctype html>
+<html class="no-js" lang="zxx" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<div th:replace="components/head :: head"> </div>
+
+<body>
+    <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    <!-- Main Wrapper Start Here -->
+    <div class="wrapper">
+        <!-- Banner Popup Start -->
+        <div th:insert="components/popup :: popup_banner"></div>
+        <!-- Banner Popup End -->
+        <!-- Newsletter Popup Start -->
+        <div th:insert="components/popup :: popup_wrapper"></div>
+        <!-- Newsletter Popup End -->
+        <!-- Main Header Area Start Here -->
+        <div th:replace="components/header :: header"></div>
+        <!-- Main Header Area End Here -->
+        <!-- Categorie Menu & Slider Area Start Here -->
+        <div th:insert="components/category_menu :: category_menu"></div>
+        <!-- Categorie Menu & Slider Area End Here -->
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-area mt-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul class="d-flex align-items-center">
+                        <li><a th:href="@{/}">Home</a></li>
+                        <li><a th:href="@{/single-blog}">Blog</a></li>
+                        <li class="active"><a th:href="@{/single-blog}">Single Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->
+        <!-- Single Blog Page Start Here -->
+        <div class="single-blog ptb-100  ptb-sm-60">
+            <div class="container">
+                <div class="row">
+                    <!-- Single Blog Sidebar Start -->
+                    <div class="col-lg-3 order-2 order-lg-1">
+                        <aside>
+                            <div class="single-sidebar latest-pro mb-30">
+                                <h3 class="sidebar-title">latest Posts</h3>
+                                <ul class="sidbar-style">
+                                    <li><a href="#">cameras</a></li>
+                                    <li><a href="#">gamepad</a></li>
+                                    <li><a href="#">digital cameras</a></li>
+                                    <li><a href="#">virtual reality</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-img mb-30">
+                                <a href="shop.html"><img src="img\banner\banner-sidebar.jpg" alt="slider-banner"></a>
+                            </div>
+                            <div class="single-sidebar mb-30">
+                                 <h3 class="sidebar-title">others</h3>
+                                 <ul class="sidbar-style">
+                                     <li><a href="#">Log in</a></li>
+                                     <li><a href="#">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+                                     <li><a href="#">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+                                     <li><a href="#">Others link</a></li>
+                                 </ul>
+                            </div>
+                            <div class="tags">
+                                 <h3 class="sidebar-title">Tags</h3>
+                                 <div class="sidbar-style">
+                                    <ul class="tag-list">
+                                        <li><a href="#">Branding</a></li>
+                                        <li><a href="#">Creative</a></li>
+                                        <li><a href="#">design</a></li>
+                                        <li><a href="#">Latest</a></li>
+                                        <li><a href="#">Male</a></li>
+                                        <li><a href="#">Female</a></li>
+                                    </ul>
+                                 </div>
+                            </div>
+                        </aside>
+                    </div>
+                    <!-- Single Blog Sidebar End -->
+                    <!-- Single Blog Sidebar Description Start -->
+                    <div class="col-lg-9 order-1 order-lg-2">
+                        <div class="single-sidebar-desc mb-all-40">
+                            <div class="sidebar-img">
+                                <img src="img\blog\10.jpg" alt="single-blog-img">
+                            </div>
+                            <div class="sidebar-post-content">
+                                <h3 class="sidebar-lg-title">This is Second Post For XipBlog</h3>
+                                <ul class="post-meta d-sm-inline-flex">
+                                    <li><span>Posted</span> by Demo Posthemes</li>
+                                    <li><span> April 27TH, 2018</span></li>
+                                </ul>
+                            </div>
+                            <div class="sidebar-desc mb-50">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip commodo consequat. Duis aute irure dolor in rep rehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiumod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip commodo consequat. Duis aute irure dolor in rep rehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiumod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                <blockquote class="mtb-30"> <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms with righteous indignation and dislike.</p><span>Christine Rios</span></blockquote>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip commodo consequat. Duis aute irure dolor in rep rehenderit. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiumod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip commodo consequat. Duis aute irure dolor in rep rehenderit. Lorem ipsum dolor sit.</p>
+                            </div>
+                            <!-- Contact Email Area Start -->
+                            <div class="blog-detail-contact">
+                                <h3 class="mb-15 leave-reply">Leave a Reply</h3>
+                                <div class="submit-review">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="usr">Your Name:</label>
+                                            <input type="text" class="form-control" id="usr">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="usr">your email:</label>
+                                            <input type="email" class="form-control" id="email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="web-address">Website Url:</label>
+                                            <input type="text" class="form-control" id="web-address">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="sub">Subject:</label>
+                                            <input type="text" class="form-control" id="sub">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="comment">Comment:</label>
+                                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                                        </div>
+                                        <div class="sbumit-reveiew">
+                                            <input value="Submit" class="return-customer-btn" type="submit" disabled>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- Contact Email Area End -->
+                        </div>
+                    </div>
+                    <!-- Single Blog Sidebar Description End -->
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Single Blog Page End Here -->
+        <!-- Support Area Start Here -->
+        <div class="support-area bdr-top">
+            <div class="container">
+                <div class="d-flex flex-wrap text-center">
+                    <div class="single-support">
+                        <div class="support-icon">
+                            <i class="lnr lnr-gift"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Great Value</h6>
+                            <span>Nunc id ante quis tellus faucibus dictum in eget.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                            <i class="lnr lnr-rocket"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Worlwide Delivery</h6>
+                            <span>Quisque posuere enim augue, in rhoncus diam dictum non</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-lock"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Safe Payment</h6>
+                            <span>Duis suscipit elit sem, sed mattis tellus accumsan.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-enter-down"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Shop Confidence</h6>
+                            <span>Faucibus dictum suscipit eget metus. Duis  elit sem, sed.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-users"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>24/7 Help Center</h6>
+                            <span>Quisque posuere enim augue, in rhoncus diam dictum non.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Support Area End Here -->
+        <!-- Footer Area Start Here -->
+        <footer class="off-white-bg2 pt-95 bdr-top pt-sm-55">
+            <!-- Footer Top Start -->
+            <div class="footer-top">
+                <div class="container">
+                    <!-- Signup Newsletter Start -->
+                    <div class="row mb-60">
+                         <div class="col-xl-7 col-lg-7 ml-auto mr-auto col-md-8">
+                            <div class="news-desc text-center mb-30">
+                                 <h3>Sign Up For Newsletters</h3>
+                                 <p>Be the First to Know. Sign up for newsletter today</p>
+                             </div>
+                             <div class="newsletter-box">
+                                 <form action="#">
+                                      <input class="subscribe" placeholder="your email address" name="email" id="subscribe" type="text">
+                                      <button type="submit" class="submit">subscribe!</button>
+                                 </form>
+                             </div>
+                         </div>
+                    </div> 
+                    <!-- Signup-Newsletter End -->                   
+                    <div class="row">
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="single-footer mb-sm-40">
+                                <h3 class="footer-title">Information</h3>
+                                <div class="footer-content">
+                                    <ul class="footer-list">
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="#">Delivery Information</a></li>
+                                        <li><a href="#">Privacy Policy</a></li>
+                                        <li><a href="contact.html">Terms & Conditions</a></li>
+                                        <li><a href="login.html">FAQs</a></li>
+                                        <li><a href="login.html">Return Policy</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="single-footer mb-sm-40">
+                                <h3 class="footer-title">Customer Service</h3>
+                                <div class="footer-content">
+                                    <ul class="footer-list">
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                        <li><a href="#">Returns</a></li>
+                                        <li><a href="#">Order History</a></li>
+                                        <li><a href="wishlist.html">Wish List</a></li>
+                                        <li><a href="#">Site Map</a></li>
+                                        <li><a href="#">Gift Certificates</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="single-footer mb-sm-40">
+                                <h3 class="footer-title">Extras</h3>
+                                <div class="footer-content">
+                                    <ul class="footer-list">
+                                        <li><a href="#">Newsletter</a></li>
+                                        <li><a href="#">Brands</a></li>
+                                        <li><a href="#">Gift Certificates</a></li>
+                                        <li><a href="#">Affiliate</a></li>
+                                        <li><a href="#">Specials</a></li>
+                                        <li><a href="#">Site Map</a></li>      
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-2 col-md-4 col-sm-6">
+                            <div class="single-footer mb-sm-40">
+                                <h3 class="footer-title">My Account</h3>
+                                <div class="footer-content">
+                                    <ul class="footer-list">
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                        <li><a href="#">Returns</a></li>
+                                        <li><a href="#">My Account</a></li>
+                                        <li><a href="#">Order History</a></li>
+                                        <li><a href="wishlist.html">Wish List</a></li>
+                                        <li><a href="#">Newsletter</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Footer Start -->
+                        <!-- Single Footer Start -->
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="single-footer mb-sm-40">
+                                <h3 class="footer-title">My Account</h3>
+                                <div class="footer-content">
+                                    <ul class="footer-list address-content">
+                                        <li><i class="lnr lnr-map-marker"></i> Address: 169-C, Technohub, Dubai Silicon Oasis.</li>
+                                        <li><i class="lnr lnr-envelope"></i><a href="#"> mail Us: Support@truemart.com </a></li>
+                                        <li>
+                                            <i class="lnr lnr-phone-handset"></i> Phone: (+800) 123 456 789)
+                                        </li>
+                                    </ul>
+                                    <div class="payment mt-25 bdr-top pt-30">
+                                        <a href="#"><img class="img" src="img\payment\1.png" alt="payment-image"></a>
+                                    </div>                                   
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Footer Start -->
+                    </div>
+                    <!-- Row End -->
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Footer Top End -->
+            <!-- Footer Middle Start -->
+            <div class="footer-middle text-center">
+                <div class="container">
+                    <div class="footer-middle-content pt-20 pb-30">
+                            <ul class="social-footer">
+                                <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://plus.google.com/"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="#"><img src="img\icon\social-img1.png" alt="google play"></a></li>
+                                <li><a href="#"><img src="img\icon\social-img2.png" alt="app store"></a></li>
+                            </ul>
+                    </div>
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Footer Middle End -->
+            <!-- Footer Bottom Start -->
+            <div class="footer-bottom pb-30">
+                <div class="container">
+
+                     <div class="copyright-text text-center">                    
+                        <p>Copyright © 2018 <a target="_blank" href="#">Truemart</a> All Rights Reserved.</p>
+                     </div>
+                </div>
+                <!-- Container End -->
+            </div>
+            <!-- Footer Bottom End -->
+        </footer>
+        <!-- Footer Area End Here -->
+        <!-- Quick View Content Start -->
+        <div th:replace="components/footer :: footer"></div>
+        <!-- Quick View Content End -->
+    </div>
+    <!-- Main Wrapper End Here -->
+
+    <!-- jquery 3.2.1 -->
+    <script src="js\vendor\jquery-3.2.1.min.js"></script>
+    <!-- Countdown js -->
+    <script src="js\jquery.countdown.min.js"></script>
+    <!-- Mobile menu js -->
+    <script src="js\jquery.meanmenu.min.js"></script>
+    <!-- ScrollUp js -->
+    <script src="js\jquery.scrollUp.js"></script>
+    <!-- Nivo slider js -->
+    <script src="js\jquery.nivo.slider.js"></script>
+    <!-- Fancybox js -->
+    <script src="js\jquery.fancybox.min.js"></script>
+    <!-- Jquery nice select js -->
+    <script src="js\jquery.nice-select.min.js"></script>
+    <!-- Jquery ui price slider js -->
+    <script src="js\jquery-ui.min.js"></script>
+    <!-- Owl carousel -->
+    <script src="js\owl.carousel.min.js"></script>
+    <!-- Bootstrap popper js -->
+    <script src="js\popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js\bootstrap.min.js"></script>
+    <!-- Plugin js -->
+    <script src="js\plugins.js"></script>
+    <!-- Main activaion js -->
+    <script src="js\main.js"></script>
+</body>
+
+</html>

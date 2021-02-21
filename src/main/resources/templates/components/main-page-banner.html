@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="category-page-banner" class="col-xl-3 col-lg-4 d-none d-lg-block">
+    <div class="vertical-menu mb-all-30">
+        <nav>
+            <ul class="vertical-menu-list">
+
+                <li><a th:href="@{/shop?category=Electronics}"><span><img th:src="@{img\vertical-menu\8.png}" alt="menu-icon"></span>Electronics & Digitals<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                    <!-- Vertical Mega-Menu Start -->
+                    <ul class="ht-dropdown megamenu first-megamenu">
+                        <!-- Single Column Start -->
+                        <li class="single-megamenu">
+                            <ul>
+                                <li class="menu-tile">Cameras</li>
+                                <li><a th:href="@{/shop?category=Camera&brand=Nikon}">Nikon</a></li>
+                                <li><a th:href="@{/shop?category=Camera&brand=Sony}">Sony</a></li>
+                            </ul>
+                            <ul>
+                                <li class="menu-tile">Tablet</li>
+                                <li><a th:href="@{/shop?category=Tablet&brand=Samsung}">Samsung</a></li>
+                                <li><a th:href="@{/shop?category=Tablet&brand=Apple}">Apple</a></li>
+                            </ul>
+                        </li>
+                        <!-- Single Column End -->
+                        <!-- Single Column Start -->
+                        <li class="single-megamenu">
+                            <ul>
+                                <li class="menu-tile">Laptop</li>
+                                <li><a th:href="@{/shop?category=Laptop&brand=Dell}">Dell</a></li>
+                                <li><a th:href="@{/shop?category=Laptop&brand=Apple}">Apple</a></li>
+                            </ul>
+                            <ul>
+                                <li class="menu-tile">MobilePhone</li>
+                                <li><a th:href="@{/shop?category=MobilePhone&brand=Apple}">Apple</a></li>
+                                <li><a th:href="@{/shop?category=MobilePhone&brand=Samsung}">Samsung</a></li>
+                            </ul>
+                        </li>
+                        <!-- Single Column End -->
+                        <!-- Single Megamenu Image Start -->
+                        <li class="megamenu-img">
+                            <a th:href="@{/shop?category=Camera&brand=Nikon}"><img th:src="@{img\vertical-menu\sub-img1.jpg}" alt="menu-image"></a>
+                            <a th:href="@{/shop?category=Camera&brand=Nikon}"><img th:src="@{img\vertical-menu\sub-img2.jpg}" alt="menu-image"></a>
+                            <a th:href="@{/shop?category=Camera&brand=Nikon}"><img th:src="@{img\vertical-menu\sub-img3.jpg}" alt="menu-image"></a>
+                        </li>
+                        <!-- Single Megamenu Image End -->
+                    </ul>
+                    <!-- Vertical Mega-Menu End -->
+                </li>
+                <li><a th:href="@{/shop?category=Fashions}"><span><img th:src="@{img\vertical-menu\7.png}" alt="menu-icon"></span>Fashion<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                    <!-- Vertical Mega-Menu Start -->
+                    <ul class="ht-dropdown megamenu megamenu-two">
+                        <!-- Single Column Start -->
+                        <li class="single-megamenu">
+                            <ul>
+                                <li class="menu-tile">Sport</li>
+                                <li><a th:href="@{/shop?category=Sport&brand=Nike}">Nike</a></li>
+
+                            </ul>
+                        </li>
+                        <!-- Single Column End -->
+                        <!-- Single Column Start -->
+                        <li class="single-megamenu">
+                            <ul>
+                                <li class="menu-tile">Women</li>
+                                <li><a th:href="@{/shop?category=Women&brand=Gucci}">Gucci</a></li>
+                                <li><a th:href="@{/shop?category=Women&brand=Chanel}">Chanel</a></li>
+
+                            </ul>
+                        </li>
+                        <!-- Single Column End -->
+                    </ul>
+                    <!-- Vertical Mega-Menu End -->
+                </li>
+                <li><a th:href="@{/shop?category=Furnitures}"><span><img th:src="@{img\vertical-menu\6.png}" alt="menu-icon"></span>Furnitures<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                    <!-- Vertical Mega-Menu Start -->
+                    <ul class="ht-dropdown megamenu megamenu-two">
+                        <!-- Single Column Start -->
+                        <li class="single-megamenu">
+                            <ul>
+                                <li class="menu-tile">Living</li>
+                                <li><a th:href="@{/shop?category=Living&brand=IKEA}">IKEA</a></li>
+
+                            </ul>
+                        </li>
+                        <!-- Single Column End -->
+                        <!-- Single Column Start -->
+                        <li class="single-megamenu">
+                            <ul>
+                                <li class="menu-tile">Decor</li>
+                                <li><a th:href="@{/shop?category=Decor&brand=IKEA}">IKEA</a></li>
+                            </ul>
+                        </li>
+                        <!-- Single Column End -->
+                    </ul>
+                    <!-- Vertical Mega-Menu End -->
+                </li>
+                <li><a th:href="@{/shop?category=kids}"><span><img th:src="@{img\vertical-menu\5.png}" alt="menu-icon"></span>Kids<i class="fa fa-angle-right" aria-hidden="true"></i>
+                </a>
+                    <!-- Vertical Mega-Menu Start -->
+                    <ul class="ht-dropdown megamenu megamenu-two">
+                        <!-- Single Column Start -->
+                        <li class="single-megamenu">
+                            <ul>
+                                <li class="menu-tile">Toys</li>
+                                <li><a th:href="@{/shop?category=toys&brand=Lego}">Lego</a></li>
+                                <li><a th:href="@{/shop?category=toys&brand=Muji}">Muji</a></li>
+
+                            </ul>
+                        </li>
+                        <!-- Single Column End -->
+                        <!-- Single Column Start -->
+                        <li class="single-megamenu">
+                            <ul>
+                                <li class="menu-tile">Baby</li>
+                                <li><a th:href="@{/shop?category=baby&brand=Muji}">Muji</a></li>
+                            </ul>
+                        </li>
+                        <!-- Single Column End -->
+                    </ul>
+                    <!-- Vertical Mega-Menu End -->
+                </li>
+                <li><a th:href="@{/shop?category=Laptop}"><span><img th:src="@{img\vertical-menu\9.png}" alt="menu-icon"></span>Laptop</a></li>
+                <li><a th:href="@{/shop?category=MobilePhone}"><span><img th:src="@{img\vertical-menu\4.png}" alt="menu-icon"></span>MobilePhone</a></li>
+                <li><a th:href="@{/shop?category=Camera}"><span><img th:src="@{img\vertical-menu\11.png}" alt="menu-icon"></span>Camera</a></li>
+                <li><a th:href="@{/shop?category=Shop}"><span><img th:src="@{img\vertical-menu\3.png}" alt="menu-icon"></span>Sport</a></li>
+                <li><a th:href="@{/shop?category=Living}"><span><img th:src="@{img\vertical-menu\6.png}" alt="menu-icon"></span>Living</a></li>
+                <li><a th:href="@{/shop?category=Toys}"><span><img th:src="@{img\vertical-menu\1.png}" alt="menu-icon"></span>Toys</a></li>
+                <!-- More Categoies Start -->
+                <li id="cate-toggle" class="category-menu v-cat-menu">
+                    <ul>
+                        <li class="has-sub"><a th:href="@{#}">More Categories</a>
+                            <ul class="category-sub">
+                                <li><a th:href="@{/shop?category=Decor}"><span><img th:src="@{img\vertical-menu\10.png}" alt="menu-icon"></span>Decor</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <!-- More Categoies End -->
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+
+</div>
+</body>
+</html>

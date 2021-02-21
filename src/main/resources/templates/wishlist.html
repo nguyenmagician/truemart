@@ -1,0 +1,189 @@
+﻿<!doctype html>
+<html class="no-js" lang="zxx" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<div th:replace="components/head :: head"> </div>
+<body>
+    <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+    <!-- Main Wrapper Start Here -->
+    <div class="wrapper">
+        <!-- Banner Popup Start -->
+        <div th:insert="components/popup :: popup_banner"></div>
+        <!-- Banner Popup End -->
+        <!-- Newsletter Popup Start -->
+        <div th:insert="components/popup :: popup_wrapper"></div>
+        <!-- Newsletter Popup End -->
+        <!-- Main Header Area Start Here -->
+        <div th:replace="components/header :: header"></div>
+        <!-- Main Header Area End Here -->
+        <!-- Categorie Menu & Slider Area Start Here -->
+        <div th:insert="components/category_menu :: category_menu"></div>
+        <!-- Categorie Menu & Slider Area End Here -->
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-area mt-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul class="d-flex align-items-center">
+                        <li><a th:href="@{/}">Home</a></li>
+                        <li class="active"><a th:href="@{/wishlist}">Wishlist</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->
+        <!-- Wish List Start -->
+        <div class="cart-main-area wish-list ptb-100 ptb-sm-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <!-- Form Start -->
+                        <form id="form-wishlist" th:action="@{/wishlist}" th:object="${wishlist}" th:method="POST">
+                            <input type="text" name="email" th:value="${user_email}" hidden>
+                            <!-- Table Content Start -->
+                            <div class="table-content table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="product-remove">Remove</th>
+                                            <th class="product-thumbnail">Image</th>
+                                            <th class="product-name">Product</th>
+                                            <th class="product-price">Discount</th>
+                                            <th class="product-price"> Price</th>
+                                            <th class="product-quantity">Stock Status</th>
+                                            <th class="product-subtotal">add to cart</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="c,itr : *{wishlistItemDTOS}">
+                                            <input type="number" th:value="${c.productId}" th:field="*{wishlistItemDTOS[__${itr.index}__].productId}" hidden />
+                                            <input type="number" th:value="${c.pns_id}" th:field="*{wishlistItemDTOS[__${itr.index}__].pns_id}" hidden />
+
+                                            <td class="product-remove"> <a class="wishlist_remove"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                            <td class="product-thumbnail">
+                                                <a th:href="${c.url}"><img th:src="${c.img_url}" alt="wishlist-image"></a>
+                                            </td>
+                                            <td class="product-name"><a class="wishlist-name" th:href="${c.url}" th:text="${c.product_name}" >Vestibulum suscipit</a></td>
+                                            <td class="product-price product-stock-status"><span th:text="|-${c.discount}%|"></span></td>
+                                            <td class="product-price"><span class="amount" th:text="${c.price_after_discount}"> £165.00</span></td>
+                                            <td th:class="${c.stocked ? 'product-stock-status' : 'color-red'}">
+                                                <span th:if="${c.stocked}">in stock</span>
+                                                <span th:unless="${c.stocked}">out stock</span>
+                                            </td>
+                                            <td class="product-add-to-cart">
+                                                <div>
+                                                    <a class="AC" title="Add to Cart"> + Add To Cart</a>
+                                                    <input class="wishlist-amount" type="number"  th:value="${c.amount}" th:field="*{wishlistItemDTOS[__${itr.index}__].amount}" style="opacity: 0;margin-bottom: -100px"/>
+                                                    <input type="text" class="AC_product_id" th:value="${c.productId}" hidden>
+                                                    <input type="text" class="AC_email" th:value="${user_email}" hidden>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- Table Content Start -->
+                        </form>
+                        <!-- Form End -->
+                    </div>
+                </div>
+                <!-- Row End -->
+            </div>
+        </div>
+        <!-- Wish List End -->
+        <!-- Support Area Start Here -->
+        <div class="support-area bdr-top">
+            <div class="container">
+                <div class="d-flex flex-wrap text-center">
+                    <div class="single-support">
+                        <div class="support-icon">
+                            <i class="lnr lnr-gift"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Great Value</h6>
+                            <span>Nunc id ante quis tellus faucibus dictum in eget.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                            <i class="lnr lnr-rocket"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Worlwide Delivery</h6>
+                            <span>Quisque posuere enim augue, in rhoncus diam dictum non</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-lock"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Safe Payment</h6>
+                            <span>Duis suscipit elit sem, sed mattis tellus accumsan.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-enter-down"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Shop Confidence</h6>
+                            <span>Faucibus dictum suscipit eget metus. Duis  elit sem, sed.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-users"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>24/7 Help Center</h6>
+                            <span>Quisque posuere enim augue, in rhoncus diam dictum non.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Support Area End Here -->
+        <!-- Footer Area Start Here -->
+        <div th:replace="components/footer :: footer"></div>
+        <!-- Footer Area End Here -->
+        <!-- Quick View Content Start -->
+
+        <!-- Quick View Content End -->
+    </div>
+    <!-- Main Wrapper End Here -->
+
+    <!-- jquery 3.2.1 -->
+    <script src="js\vendor\jquery-3.2.1.min.js"></script>
+    <!-- Countdown js -->
+    <script src="js\jquery.countdown.min.js"></script>
+    <!-- Mobile menu js -->
+    <script src="js\jquery.meanmenu.min.js"></script>
+    <!-- ScrollUp js -->
+    <script src="js\jquery.scrollUp.js"></script>
+    <!-- Nivo slider js -->
+    <script src="js\jquery.nivo.slider.js"></script>
+    <!-- Fancybox js -->
+    <script src="js\jquery.fancybox.min.js"></script>
+    <!-- Jquery nice select js -->
+    <script src="js\jquery.nice-select.min.js"></script>
+    <!-- Jquery ui price slider js -->
+    <script src="js\jquery-ui.min.js"></script>
+    <!-- Owl carousel -->
+    <script src="js\owl.carousel.min.js"></script>
+    <!-- Bootstrap popper js -->
+    <script src="js\popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js\bootstrap.min.js"></script>
+    <!-- Plugin js -->
+    <script src="js\plugins.js"></script>
+    <!-- Main activaion js -->
+    <script src="js\main.js"></script>
+</body>
+
+</html>

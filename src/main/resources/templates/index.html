@@ -1,0 +1,979 @@
+﻿<!doctype html>
+<html class="no-js" lang="zxx" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<div th:replace="components/head :: head">
+
+</div>
+
+<body>
+    <!--[if lte IE 9]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a th:href="@{https://browsehappy.com/}">upgrade your browser</a> to improve your experience and security.</p>
+	<![endif]-->
+
+    <!-- Main Wrapper Start Here -->
+    <div class="wrapper">
+       <!-- Banner Popup Start -->
+        <div th:insert="components/popup :: popup_banner"></div>
+        <!-- Banner Popup End -->
+       <!-- Newsletter Popup Start -->
+        <div th:insert="components/popup :: popup_wrapper"></div>
+        <!-- Newsletter Popup End -->
+
+        <!-- Main Header Area Start Here -->
+        <div th:replace="components/header :: header"></div>
+        <!-- Main Header Area End Here -->
+        <!-- Categorie Menu & Slider Area Start Here -->
+        <div  class="main-page-banner pb-50 off-white-bg">
+            <div class="container">
+                <div class="row">
+                    <!-- Vertical Menu Start Here -->
+                    <div class="col-xl-3 col-lg-4 d-none d-lg-block">
+                        <div class="vertical-menu mb-all-30">
+                            <nav>
+                                <ul class="vertical-menu-list">
+
+                                    <li><a th:href="@{/shop?category=Electronics}"><span><img th:src="@{img\vertical-menu\8.png}" alt="menu-icon"></span>Electronics & Digitals<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                        <!-- Vertical Mega-Menu Start -->
+                                        <ul class="ht-dropdown megamenu first-megamenu">
+                                            <!-- Single Column Start -->
+                                            <li class="single-megamenu">
+                                                <ul>
+                                                    <li class="menu-tile">Cameras</li>
+                                                    <li><a th:href="@{/shop?category=Camera&brand=Nikon}">Nikon</a></li>
+                                                    <li><a th:href="@{/shop?category=Cameras&brand=Sony}">Sony</a></li>
+                                                </ul>
+                                                <ul>
+                                                    <li class="menu-tile">Tablet</li>
+                                                    <li><a th:href="@{/shop?category=Tablet&brand=Samsung}">Samsung</a></li>
+                                                    <li><a th:href="@{/shop?category=Tablet&brand=Apple}">Apple</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- Single Column End -->
+                                            <!-- Single Column Start -->
+                                            <li class="single-megamenu">
+                                                <ul>
+                                                    <li class="menu-tile">Laptop</li>
+                                                    <li><a th:href="@{/shop?category=Laptop&brand=Dell}">Dell</a></li>
+                                                    <li><a th:href="@{/shop?category=Laptop&brand=Apple}">Apple</a></li>
+                                                </ul>
+                                                <ul>
+                                                    <li class="menu-tile">MobilePhone</li>
+                                                    <li><a th:href="@{/shop?category=MobilePhone&brand=Apple}">Apple</a></li>
+                                                    <li><a th:href="@{/shop?category=MobilePhone&brand=Samsung}">Samsung</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- Single Column End -->
+                                            <!-- Single Megamenu Image Start -->
+                                            <li class="megamenu-img">
+                                                <a th:href="@{/shop?category=Camera&brand=Nikon}"><img th:src="@{img\vertical-menu\sub-img1.jpg}" alt="menu-image"></a>
+                                                <a th:href="@{/shop?category=Camera&brand=Nikon}"><img th:src="@{img\vertical-menu\sub-img2.jpg}" alt="menu-image"></a>
+                                                <a th:href="@{/shop?category=Camera&brand=Nikon}"><img th:src="@{img\vertical-menu\sub-img3.jpg}" alt="menu-image"></a>
+                                            </li>
+                                            <!-- Single Megamenu Image End -->
+                                        </ul>
+                                        <!-- Vertical Mega-Menu End -->
+                                    </li>
+                                    <li><a th:href="@{/shop?category=Fashions}"><span><img th:src="@{img\vertical-menu\7.png}" alt="menu-icon"></span>Fashion<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                        <!-- Vertical Mega-Menu Start -->
+                                        <ul class="ht-dropdown megamenu megamenu-two">
+                                            <!-- Single Column Start -->
+                                            <li class="single-megamenu">
+                                                <ul>
+                                                    <li class="menu-tile">Sport</li>
+                                                    <li><a th:href="@{/shop?category=Sport&brand=Nike}">Nike</a></li>
+
+                                                </ul>
+                                            </li>
+                                            <!-- Single Column End -->
+                                            <!-- Single Column Start -->
+                                            <li class="single-megamenu">
+                                                <ul>
+                                                    <li class="menu-tile">Women</li>
+                                                    <li><a th:href="@{/shop?category=Women&brand=Gucci}">Gucci</a></li>
+                                                    <li><a th:href="@{/shop?category=Women&brand=Chanel}">Chanel</a></li>
+
+                                                </ul>
+                                            </li>
+                                            <!-- Single Column End -->
+                                        </ul>
+                                        <!-- Vertical Mega-Menu End -->
+                                    </li>
+                                    <li><a th:href="@{/shop?category=Furnitures}"><span><img th:src="@{img\vertical-menu\6.png}" alt="menu-icon"></span>Furnitures<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                        <!-- Vertical Mega-Menu Start -->
+                                        <ul class="ht-dropdown megamenu megamenu-two">
+                                            <!-- Single Column Start -->
+                                            <li class="single-megamenu">
+                                                <ul>
+                                                    <li class="menu-tile">Living</li>
+                                                    <li><a th:href="@{/shop?category=Living&brand=IKEA}">IKEA</a></li>
+
+                                                </ul>
+                                            </li>
+                                            <!-- Single Column End -->
+                                            <!-- Single Column Start -->
+                                            <li class="single-megamenu">
+                                                <ul>
+                                                    <li class="menu-tile">Decor</li>
+                                                    <li><a th:href="@{/shop?category=Decor&brand=IKEA}">IKEA</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- Single Column End -->
+                                        </ul>
+                                        <!-- Vertical Mega-Menu End -->
+                                    </li>
+                                    <li><a th:href="@{/shop?category=kids}"><span><img th:src="@{img\vertical-menu\5.png}" alt="menu-icon"></span>Kids<i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    </a>
+                                        <!-- Vertical Mega-Menu Start -->
+                                        <ul class="ht-dropdown megamenu megamenu-two">
+                                            <!-- Single Column Start -->
+                                            <li class="single-megamenu">
+                                                <ul>
+                                                    <li class="menu-tile">Toys</li>
+                                                    <li><a th:href="@{/shop?category=toys&brand=Lego}">Lego</a></li>
+                                                    <li><a th:href="@{/shop?category=toys&brand=Muji}">Muji</a></li>
+
+                                                </ul>
+                                            </li>
+                                            <!-- Single Column End -->
+                                            <!-- Single Column Start -->
+                                            <li class="single-megamenu">
+                                                <ul>
+                                                    <li class="menu-tile">Baby</li>
+                                                    <li><a th:href="@{/shop?category=baby&brand=Muji}">Muji</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- Single Column End -->
+                                        </ul>
+                                        <!-- Vertical Mega-Menu End -->
+                                    </li>
+                                    <li><a th:href="@{/shop?category=Laptop}"><span><img th:src="@{img\vertical-menu\9.png}" alt="menu-icon"></span>Laptop</a></li>
+                                    <li><a th:href="@{/shop?category=MobilePhone}"><span><img th:src="@{img\vertical-menu\4.png}" alt="menu-icon"></span>MobilePhone</a></li>
+                                    <li><a th:href="@{/shop?category=Camera}"><span><img th:src="@{img\vertical-menu\11.png}" alt="menu-icon"></span>Camera</a></li>
+                                    <li><a th:href="@{/shop?category=Shop}"><span><img th:src="@{img\vertical-menu\3.png}" alt="menu-icon"></span>Sport</a></li>
+                                    <li><a th:href="@{/shop?category=Living}"><span><img th:src="@{img\vertical-menu\6.png}" alt="menu-icon"></span>Living</a></li>
+                                    <li><a th:href="@{/shop?category=Toys}"><span><img th:src="@{img\vertical-menu\1.png}" alt="menu-icon"></span>Toys</a></li>
+                                    <!-- More Categoies Start -->
+                                    <li id="cate-toggle" class="category-menu v-cat-menu">
+                                        <ul>
+                                            <li class="has-sub"><a th:href="@{#}">More Categories</a>
+                                                <ul class="category-sub">
+                                                    <li><a th:href="@{/shop?category=Decor}"><span><img th:src="@{img\vertical-menu\10.png}" alt="menu-icon"></span>Decor</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!-- More Categoies End -->
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- Vertical Menu End Here -->
+                    <!-- Slider Area Start Here -->
+                    <div class="col-xl-9 col-lg-8 slider_box">
+                        <div class="slider-wrapper theme-default">
+                            <!-- Slider Background  Image Start-->
+                            <div id="slider" class="nivoSlider">
+                                <a th:href="@{/shop?category=Electronics}"><img th:src="@{img\slider\1.jpg}" data-thumb="img/slider/1.jpg" alt="" title="#htmlcaption"></a>
+                                <a th:href="@{/shop?category=Electronics}"><img th:src="@{img\slider\2.jpg}" data-thumb="img/slider/2.jpg" alt="" title="#htmlcaption2"></a>
+                            </div>
+                            <!-- Slider Background  Image Start-->
+                        </div>
+                    </div>
+                    <!-- Slider Area End Here -->
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Categorie Menu & Slider Area End Here -->
+        <!-- Brand Banner Area Start Here -->
+        <div class="image-banner pb-50 off-white-bg">
+            <div class="container">
+                <div class="col-img">
+                    <a th:href="@{#}"><img th:src="@{img\banner\h1-banner.jpg}" alt="image banner"></a>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Brand Banner Area End Here -->
+        <!-- Hot Deal Products Start Here -->
+        <div class="hot-deal-products off-white-bg pb-90 pb-sm-50">
+            <div class="container">
+               <!-- Product Title Start -->
+               <div class="post-title pb-30">
+                   <h2>hot deals</h2>
+               </div>
+               <!-- Product Title End -->
+                <!-- Hot Deal Product Activation Start -->
+                <div class="hot-deal-active owl-carousel">
+                    <!-- Single Product Start -->
+                    <div class="single-product" th:each="sp : ${hotdeals}">
+                        <!-- Product Image Start -->
+                        <div class="pro-img">
+                            <a th:href="@{${sp.product_url}}">
+                                <img class="primary-img" th:src="@{${sp.img1_url}}" alt="single-product">
+                                <img class="secondary-img" th:src="@{${sp.img2_url}}" alt="single-product">
+                            </a>
+                            <div class="countdown" th:data-countdown="${promotion}"></div>
+                            <a class="quick_view"  title="Quick View"><i class="lnr lnr-magnifier"></i></a>
+                        </div>
+                        <!-- Product Image End -->
+                        <!-- Product Content Start -->
+                        <div class="pro-content">
+                            <div class="pro-info">
+                                <h4 ><a th:href="@{${sp.product_url}}" th:text="${sp.name}">Work Lamp Silver Proin</a></h4>
+                                <p th:if="${sp.discounted}"><span class="price" th:text="${sp.price_after_discount}">$320.45</span><del class="prev-price" th:text="${sp.price_after_discount}">$400.50</del></p>
+                                <p th:unless="${sp.discounted}"><span class="price" th:text="${sp.price}">$320.45</span></p>
+                                <div th:if="${sp.discounted}" class="label-product l_sale" th:text="${sp.discount}">30<span class="symbol-percent">%</span></div>
+                            </div>
+                            <div class="pro-actions">
+                                <div class="actions-primary">
+                                    <a class="AC" title="Add to Cart" th:if="${isLogined}"> + Add To Cart</a>
+                                    <a  title="Add to Cart" th:unless="${isLogined}" th:href="@{/requirelogin}"> + Add To Cart</a>
+                                    <input type="text" class="AC_product_id" th:value="${sp.id}" hidden>
+                                    <input type="text" class="AC_email" th:value="${user_email}" hidden>
+                                </div>
+                                <div class="actions-secondary">
+                                    <a class="AC_compare"
+                                       title="Compare"
+                                       th:if="${isLogined}"> <i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
+
+                                    <a title="Compare"
+                                       th:unless="${isLogined}"
+                                       th:href="@{/requirelogin}"><i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
+
+                                    <a  class="AC_wishlist"
+                                        title="Wishlist"
+                                        th:if="${isLogined}"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
+
+                                    <a  th:href="@{/requirelogin}"
+                                        title="Wishlist"
+                                        th:unless="${isLogined}"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
+
+                                    <input type="text" class="AC_product_id" th:value="${sp.id}" hidden>
+                                    <input type="text" class="AC_email" th:value="${user_email}" hidden>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product Content End -->
+                    </div>
+                    <!-- Single Product End -->
+
+                </div>
+                <!-- Hot Deal Product Active End -->
+
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Hot Deal Products End Here -->
+        <!-- Big Banner Start Here -->
+        <div class="big-banner mt-100 pb-85 mt-sm-60 pb-sm-45">
+            <div class="container banner-2">
+                <div class="banner-box">
+                    <div class="col-img">
+                        <a th:href="@{/shop?category=Fashions}"><img th:src="@{img\banner\banner3-1.jpg}" alt="banner 3"></a>
+                    </div>
+                    <div class="col-img">
+                        <a th:href="@{/shop?category=Electronics}"><img th:src="@{img\banner\banner3-2.jpg}" alt="banner 3"></a>
+                    </div>
+                </div>
+                <div class="banner-box">
+                    <div class="col-img">
+                        <a th:href="@{/shop?category=Toys}"><img th:src="@{img\banner\banner3-3.jpg}" alt="banner 3"></a>
+                    </div>
+                </div>
+                <div class="banner-box">
+                    <div class="col-img">
+                        <a th:href="@{/shop?category=Furnitures}"><img th:src="@{img\banner\banner3-4.jpg}" alt="banner 3"></a>
+                    </div>
+                    <div class="col-img">
+                        <a th:href="@{/shop?category=Fashions}"><img th:src="@{img\banner\banner3-5.jpg}" alt="banner 3"></a>
+                    </div>
+                </div>
+                <div class="banner-box">
+                    <div class="col-img">
+                        <a th:href="@{/shop?category=Women}"><img th:src="@{img\banner\banner3-6.jpg}" alt="banner 3"></a>
+                    </div>
+                </div>
+                <div class="banner-box">
+                    <div class="col-img">
+                        <a th:href="@{/shop?category=Fashions}"><img th:src="@{img\banner\banner3-7.jpg}" alt="banner 3"></a>
+                    </div>
+                    <div class="col-img">
+                        <a th:href="@{/shop?category=Electronics}"><img th:src="@{img\banner\banner3-8.jpg}" alt="banner 3"></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Big Banner End Here -->
+        <!-- Arrivals Products Area Start Here -->
+        <div class="arrivals-product pb-85 pb-sm-45"  th:object="${Electronics}"  >
+            <div class="container">
+                <div class="main-product-tab-area">
+                    <div class="tab-menu mb-25">
+                        <div class="section-ttitle">
+                            <h2>Electronics & Digitals  </h2>
+                       </div>
+                        <!-- Nav tabs -->
+                        <ul class="nav tabs-area" role="tablist" th:remove="all-but-first">
+                            <li class="nav-item" th:each="category,iStat : ${Electronics.categoryFrontList}" >
+                                <a th:class="${iStat.index} == 0 ? 'nav-link active' : 'nav-link'" data-toggle="tab" th:href="@{${category.id_url}}" th:text="${category.name}">Electronics </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" th:href="@{#beauty}">Beauty</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" th:href="@{#electronics}">Sport/Outdoor</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" th:href="@{#kids}">Living</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" th:href="@{#beauty}">Food</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" th:href="@{#kids}">Baby/Kids</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" th:href="@{#fshion}">Fashion</a>
+                            </li>
+                        </ul>                       
+
+                    </div> 
+
+                    <!-- Tab Contetn Start -->
+                    <div class="tab-content" th:remove="all-but-first">
+                        <div th:id="${category.name}" th:class="${index.index} == 0 ? 'tab-pane fade active show' : 'tab-pane fade'" th:each="category,index : ${Electronics.categoryFrontList}">
+                            <div class="row">
+                                <div class="col-lg-5 order-2 order-lg-1">
+                                    <div class="banner-site-box mt-10">
+                                        <div class="col-img">
+                                            <a th:href="@{${Electronics.category_url}}"><img th:src="@{img\banner\electorince.jpg}" alt=""></a>
+                                        </div>
+                                        <!-- Single Product Start -->
+                                        <div class="single-product mt-20">
+                                            <!-- Product Image Start -->
+                                            <div class="pro-img">
+                                                <a th:href="@{${category.fproduct.product_url}}">
+                                                    <img class="primary-img" th:src="@{${category.fproduct.img1_url}}" alt="single-product">
+                                                    <img class="secondary-img" th:src="@{${category.fproduct.img2_url}}" alt="single-product">
+                                                </a>
+                                                <a class="quick_view" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
+                                            </div>
+                                            <!-- Product Image End -->
+                                            <!-- Product Content Start -->
+                                            <div class="pro-content">
+                                                <div class="pro-info">
+                                                    <h4 ><a th:href="@{${category.fproduct.product_url}}" th:text="${category.fproduct.name}"> 1 Utensils and Knives Bloc
+                                                        </a></h4>
+                                                    <p th:if="${category.fproduct.discounted}"><span class="price" th:text="${category.fproduct.price_after_discount}">$188.45</span><del class="prev-price" th:text="${category.fproduct.price}">$190.50</del></p>
+                                                    <p th:unless="${category.fproduct.discounted}"><span class="price" th:text="${category.fproduct.price}">$188.45</span></p>
+                                                    <div th:if="${category.fproduct.discounted}" class="label-product l_sale" th:text="${category.fproduct.discount}">20<span class="symbol-percent">%</span></div>
+                                                </div>
+
+                                            </div>
+                                            <!-- Product Content End -->
+                                            <span th:if="${category.fproduct.new}" class="sticker-new">new</span>
+                                        </div>
+                                        <!-- Single Product End -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 order-1 order-lg-2">
+                                    <!-- Arrivals Product Activation Start Here -->
+                                    <div class="electronics-pro-active2 owl-carousel" th:remove="all-but-first">
+                                        <!-- Double Product Start -->
+                                        <div class="double-product"   th:each="dp : ${category.dlist}">
+                                            <!-- Single Product Start -->
+                                            <div class="single-product" th:each="sp : ${dp.slist}">
+                                                <!-- Product Image Start -->
+                                                <div class="pro-img">
+                                                    <a th:href="@{${sp.product_url}}">
+                                                        <img class="primary-img" th:src="@{${sp.img1_url}}" alt="single-product">
+                                                        <img class="secondary-img" th:src="@{${sp.img2_url}}" alt="single-product">
+                                                    </a>
+                                                    <a  class="quick_view" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
+                                                </div>
+                                                <!-- Product Image End -->
+                                                <!-- Product Content Start -->
+                                                <div class="pro-content">
+                                                    <div class="pro-info">
+                                                        <h4 ><a th:href="@{${sp.product_url}}" th:text="${sp.name}">Work Lamp Silver Proin</a></h4>
+                                                        <p th:if="${sp.discounted}"><span class="price" th:text="${sp.price_after_discount}">$320.45</span><del class="prev-price" th:text="${sp.price_after_discount}">$400.50</del></p>
+                                                        <p th:unless="${sp.discounted}"><span class="price" th:text="${sp.price}">$320.45</span></p>
+                                                        <div th:if="${sp.discounted}" class="label-product l_sale" th:text="${sp.discount}">30<span class="symbol-percent">%</span></div>
+                                                    </div>
+                                                    <div class="pro-actions">
+                                                        <div class="actions-primary">
+                                                            <!--   th:href="@{${sp.cart_url}}"-->
+                                                            <a class="AC" title="Add to Cart" th:if="${isLogined}"> + Add To Cart</a>
+                                                            <a  title="Add to Cart" th:unless="${isLogined}" th:href="@{/requirelogin}"> + Add To Cart</a>
+                                                            <input type="text" class="AC_product_id" th:value="${sp.id}" hidden>
+                                                            <input type="text" class="AC_email" th:value="${user_email}" hidden>
+                                                        </div>
+                                                        <div class="actions-secondary">
+                                                            <a class="AC_compare"
+                                                               title="Compare"
+                                                               th:if="${isLogined}"> <i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
+
+                                                            <a title="Compare"
+                                                               th:unless="${isLogined}"
+                                                               th:href="@{/requirelogin}"><i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
+
+                                                            <a  class="AC_wishlist"
+                                                                title="Wishlist"
+                                                                th:if="${isLogined}"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
+
+                                                            <a  th:href="@{/requirelogin}"
+                                                                title="Wishlist"
+                                                                th:unless="${isLogined}"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
+
+                                                            <input type="text" class="AC_product_id" th:value="${sp.id}" hidden>
+                                                            <input type="text" class="AC_email" th:value="${user_email}" hidden>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Product Content End -->
+                                                <span th:if="${sp.new}" class="sticker-new">new</span>
+                                            </div>
+                                            <!-- Single Product End -->
+                                             <!-- Single Product Start -->
+
+                                            <!-- Single Product End -->
+                                        </div>
+                                        <!-- Double Product End -->
+
+                                    </div>
+                                    <!-- Arrivals Product Activation End Here -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- #electronics End Here -->
+                    </div>
+                    <!-- Tab Content End -->
+                </div>
+                <!-- main-product-tab-area-->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Arrivals Products Area End Here -->
+        <!-- Brand Banner Area Start Here -->
+        <div  class="big-banner pb-100 pb-sm-60">
+            <div class="container big-banner-box">
+                <div class="col-img">
+                    <a th:href="@{/shop?category=Fashions}">
+                        <img th:src="@{img\banner\5.jpg}" alt="">
+                    </a>
+                </div>
+                <div class="col-img">
+                    <a th:href="@{/shop?category=Electronics}">
+                        <img th:src="@{img\banner\h1-banner3.jpg}" alt="">
+                    </a>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Brand Banner Area End Here -->
+        <!-- Womens Products Area Start Here -->
+        <div  class="arrivals-product pb-85 pb-sm-45"  th:object="${Fashions}"  >
+            <div class="container">
+                <div class="main-product-tab-area">
+                    <div class="tab-menu mb-25">
+                        <div class="section-ttitle">
+                            <h2>Fashions & Styles </h2>
+                        </div>
+                        <!-- Nav tabs -->
+                        <ul class="nav tabs-area" role="tablist" th:remove="all-but-first">
+                            <li class="nav-item" th:each="category,iStat : ${Fashions.categoryFrontList}" >
+                                <a th:class="${iStat.index} == 0 ? 'nav-link active' : 'nav-link'" data-toggle="tab" th:href="@{${category.id_url}}" th:text="${category.name}">Fashions </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                    <!-- Tab Contetn Start -->
+                    <div class="tab-content" th:remove="all-but-first">
+                        <div th:id="${category.name}" th:class="${index.index} == 0 ? 'tab-pane fade active show' : 'tab-pane fade'" th:each="category,index : ${Fashions.categoryFrontList}">
+                            <div class="row">
+                                <div class="col-lg-5 order-2 order-lg-1">
+                                    <div class="banner-site-box mt-10">
+                                        <div class="col-img">
+                                            <a th:href="@{${Fashions.category_url}}"><img th:src="@{img\banner\banner-wmn.jpg}" alt=""></a>
+                                        </div>
+                                        <!-- Single Product Start -->
+                                        <div class="single-product mt-20">
+                                            <!-- Product Image Start -->
+                                            <div class="pro-img">
+                                                <a th:href="@{${category.fproduct.product_url}}">
+                                                    <img class="primary-img" th:src="@{${category.fproduct.img1_url}}" alt="single-product">
+                                                    <img class="secondary-img" th:src="@{${category.fproduct.img2_url}}" alt="single-product">
+                                                </a>
+                                                <a class="quick_view" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
+                                            </div>
+                                            <!-- Product Image End -->
+                                            <!-- Product Content Start -->
+                                            <div class="pro-content">
+                                                <div class="pro-info">
+                                                    <h4 ><a th:href="@{${category.fproduct.product_url}}" th:text="${category.fproduct.name}"> 1 Utensils and Knives Bloc
+                                                    </a></h4>
+                                                    <p th:if="${category.fproduct.discounted}"><span class="price" th:text="${category.fproduct.price_after_discount}">$188.45</span><del class="prev-price" th:text="${category.fproduct.price}">$190.50</del></p>
+                                                    <p th:unless="${category.fproduct.discounted}"><span class="price" th:text="${category.fproduct.price}">$188.45</span></p>
+                                                    <div th:if="${category.fproduct.discounted}" class="label-product l_sale" th:text="${category.fproduct.discount}">20<span class="symbol-percent">%</span></div>
+                                                </div>
+                                            </div>
+                                            <!-- Product Content End -->
+                                            <span th:if="${category.fproduct.new}" class="sticker-new">new</span>
+                                        </div>
+                                        <!-- Single Product End -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 order-1 order-lg-2">
+                                    <!-- Arrivals Product Activation Start Here -->
+                                    <div class="electronics-pro-active2 owl-carousel" th:remove="all-but-first">
+                                        <!-- Double Product Start -->
+                                        <div class="double-product"   th:each="dp : ${category.dlist}">
+                                            <!-- Single Product Start -->
+                                            <div class="single-product" th:each="sp : ${dp.slist}">
+                                                <!-- Product Image Start -->
+                                                <div class="pro-img">
+                                                    <a th:href="@{${sp.product_url}}">
+                                                        <img class="primary-img" th:src="@{${sp.img1_url}}" alt="single-product">
+                                                        <img class="secondary-img" th:src="@{${sp.img2_url}}" alt="single-product">
+                                                    </a>
+                                                    <a  class="quick_view" d title="Quick View"><i class="lnr lnr-magnifier"></i></a>
+                                                </div>
+                                                <!-- Product Image End -->
+                                                <!-- Product Content Start -->
+                                                <div class="pro-content">
+                                                    <div class="pro-info">
+                                                        <h4 ><a th:href="@{${sp.product_url}}" th:text="${sp.name}">Work Lamp Silver Proin</a></h4>
+                                                        <p th:if="${sp.discounted}"><span class="price" th:text="${sp.price_after_discount}">$320.45</span><del class="prev-price" th:text="${sp.price_after_discount}">$400.50</del></p>
+                                                        <p th:unless="${sp.discounted}"><span class="price" th:text="${sp.price}">$320.45</span></p>
+                                                        <div th:if="${sp.discounted}" class="label-product l_sale" th:text="${sp.discount}">30<span class="symbol-percent">%</span></div>
+                                                    </div>
+                                                    <div class="pro-actions">
+                                                        <div class="actions-primary">
+                                                            <a class="AC"
+                                                               title="Add to Cart"
+                                                               th:if="${isLogined}"> + Add To Cart</a>
+
+                                                            <a title="Add to Cart"
+                                                               th:unless="${isLogined}"
+                                                               th:href="@{/requirelogin}"> + Add To Cart</a>
+
+
+                                                            <input type="text" class="AC_product_id" th:value="${sp.id}" hidden>
+                                                            <input type="text" class="AC_email" th:value="${user_email}" hidden>
+                                                        </div>
+                                                        <div class="actions-secondary">
+                                                            <a class="AC_compare"
+                                                               title="Compare"
+                                                               th:if="${isLogined}"> <i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
+
+                                                            <a title="Compare"
+                                                               th:unless="${isLogined}"
+                                                               th:href="@{/requirelogin}"><i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
+
+                                                            <a  class="AC_wishlist"
+                                                                title="Wishlist"
+                                                                th:if="${isLogined}"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
+
+                                                            <a  th:href="@{/requirelogin}"
+                                                                title="Wishlist"
+                                                                th:unless="${isLogined}"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
+
+                                                            <input type="text" class="AC_product_id" th:value="${sp.id}" hidden>
+                                                            <input type="text" class="AC_email" th:value="${user_email}" hidden>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Product Content End -->
+                                                <span th:if="${sp.new}" class="sticker-new">new</span>
+                                            </div>
+                                            <!-- Single Product End -->
+                                            <!-- Single Product Start -->
+
+                                            <!-- Single Product End -->
+                                        </div>
+                                        <!-- Double Product End -->
+
+                                    </div>
+                                    <!-- Arrivals Product Activation End Here -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Tab Content End -->
+                </div>
+                <!-- main-product-tab-area-->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Womens Products Area End Here -->
+        <!-- Furniture Products Area Start Here -->
+        <div  class="arrivals-product pb-85 pb-sm-45" th:object="${Furnitures}">
+            <div class="container">
+                <div class="main-product-tab-area">
+                    <div class="tab-menu mb-25">
+                        <div class="section-ttitle">
+                            <h2>Interior Furnitures</h2>
+                        </div>
+                        <!-- Nav tabs -->
+                        <ul class="nav tabs-area" role="tablist" th:remove="all-but-first">
+                            <li class="nav-item" th:each="category,iStat : ${Furnitures.categoryFrontList}" >
+                                <a th:class="${iStat.index} == 0 ? 'nav-link active' : 'nav-link'" data-toggle="tab" th:href="@{${category.id_url}}" th:text="${category.name}">Furnitures </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                    <!-- Tab Contetn Start -->
+                    <div class="tab-content" th:remove="all-but-first">
+                        <div th:id="${category.name}" th:class="${index.index} == 0 ? 'tab-pane fade active show' : 'tab-pane fade'" th:each="category,index : ${Furnitures.categoryFrontList}">
+                            <div class="row">
+                                <div class="col-lg-5 order-2 order-lg-1">
+                                    <div class="banner-site-box mt-10">
+                                        <div class="col-img">
+                                            <a th:href="@{${Furnitures.category_url}}"><img th:src="@{img\banner\banner-fnd.jpg}" alt=""></a>
+                                        </div>
+                                        <!-- Single Product Start -->
+                                        <div class="single-product mt-20">
+                                            <!-- Product Image Start -->
+                                            <div class="pro-img">
+                                                <a th:href="@{${category.fproduct.product_url}}">
+                                                    <img class="primary-img" th:src="@{${category.fproduct.img1_url}}" alt="single-product">
+                                                    <img class="secondary-img" th:src="@{${category.fproduct.img2_url}}" alt="single-product">
+                                                </a>
+                                                <a class="quick_view" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
+                                            </div>
+                                            <!-- Product Image End -->
+                                            <!-- Product Content Start -->
+                                            <div class="pro-content">
+                                                <div class="pro-info">
+                                                    <h4 ><a th:href="@{${category.fproduct.product_url}}" th:text="${category.fproduct.name}"> 1 Utensils and Knives Bloc
+                                                    </a></h4>
+                                                    <p th:if="${category.fproduct.discounted}"><span class="price" th:text="${category.fproduct.price_after_discount}">$188.45</span><del class="prev-price" th:text="${category.fproduct.price}">$190.50</del></p>
+                                                    <p th:unless="${category.fproduct.discounted}"><span class="price" th:text="${category.fproduct.price}">$188.45</span></p>
+                                                    <div th:if="${category.fproduct.discounted}" class="label-product l_sale" th:text="${category.fproduct.discount}">20<span class="symbol-percent">%</span></div>
+                                                </div>
+                                            </div>
+                                            <!-- Product Content End -->
+                                            <span th:if="${category.fproduct.new}" class="sticker-new">new</span>
+                                        </div>
+                                        <!-- Single Product End -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 order-1 order-lg-2">
+                                    <!-- Arrivals Product Activation Start Here -->
+                                    <div class="electronics-pro-active2 owl-carousel" th:remove="all-but-first">
+                                        <!-- Double Product Start -->
+                                        <div class="double-product"   th:each="dp : ${category.dlist}">
+                                            <!-- Single Product Start -->
+                                            <div class="single-product" th:each="sp : ${dp.slist}">
+                                                <!-- Product Image Start -->
+                                                <div class="pro-img">
+                                                    <a th:href="@{${sp.product_url}}">
+                                                        <img class="primary-img" th:src="@{${sp.img1_url}}" alt="single-product">
+                                                        <img class="secondary-img" th:src="@{${sp.img2_url}}" alt="single-product">
+                                                    </a>
+                                                    <a  class="quick_view" d title="Quick View"><i class="lnr lnr-magnifier"></i></a>
+                                                </div>
+                                                <!-- Product Image End -->
+                                                <!-- Product Content Start -->
+                                                <div class="pro-content">
+                                                    <div class="pro-info">
+                                                        <h4 ><a th:href="@{${sp.product_url}}" th:text="${sp.name}">Work Lamp Silver Proin</a></h4>
+                                                        <p th:if="${sp.discounted}"><span class="price" th:text="${sp.price_after_discount}">$320.45</span><del class="prev-price" th:text="${sp.price_after_discount}">$400.50</del></p>
+                                                        <p th:unless="${sp.discounted}"><span class="price" th:text="${sp.price}">$320.45</span></p>
+                                                        <div th:if="${sp.discounted}" class="label-product l_sale" th:text="${sp.discount}">30<span class="symbol-percent">%</span></div>
+                                                    </div>
+                                                    <div class="pro-actions">
+                                                        <div class="actions-primary">
+                                                            <a class="AC" title="Add to Cart" th:if="${isLogined}"> + Add To Cart</a>
+                                                            <a  title="Add to Cart" th:unless="${isLogined}" th:href="@{/requirelogin}"> + Add To Cart</a>
+                                                            <input type="text" class="AC_product_id" th:value="${sp.id}" hidden>
+                                                            <input type="text" class="AC_email" th:value="${user_email}" hidden>
+                                                        </div>
+                                                        <div class="actions-secondary">
+                                                            <a class="AC_compare"
+                                                               title="Compare"
+                                                               th:if="${isLogined}"> <i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
+
+                                                            <a title="Compare"
+                                                               th:unless="${isLogined}"
+                                                               th:href="@{/requirelogin}"><i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
+
+                                                            <a  class="AC_wishlist"
+                                                                title="Wishlist"
+                                                                th:if="${isLogined}"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
+
+                                                            <a  th:href="@{/requirelogin}"
+                                                                title="Wishlist"
+                                                                th:unless="${isLogined}"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
+
+                                                            <input type="text" class="AC_product_id" th:value="${sp.id}" hidden>
+                                                            <input type="text" class="AC_email" th:value="${user_email}" hidden>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Product Content End -->
+                                                <span th:if="${sp.new}" class="sticker-new">new</span>
+                                            </div>
+                                            <!-- Single Product End -->
+                                            <!-- Single Product Start -->
+
+                                            <!-- Single Product End -->
+                                        </div>
+                                        <!-- Double Product End -->
+
+                                    </div>
+                                    <!-- Arrivals Product Activation End Here -->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Tab Content End -->
+                </div>
+                <!-- main-product-tab-area-->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Furniture Products Area End Here -->
+        <!-- Kids Products Area Start Here -->
+        <div  class="arrivals-product pb-85 pb-sm-45" th:object="${Kids}"  >
+            <div class="container">
+                <div class="main-product-tab-area">
+                    <div class="tab-menu mb-25">
+                        <div class="section-ttitle">
+                            <h2>Kids</h2>
+                        </div>
+                        <!-- Nav tabs -->
+                        <ul class="nav tabs-area" role="tablist" th:remove="all-but-first">
+                            <li class="nav-item" th:each="category,iStat : ${Kids.categoryFrontList}" >
+                                <a th:class="${iStat.index} == 0 ? 'nav-link active' : 'nav-link'" data-toggle="tab" th:href="@{${category.id_url}}" th:text="${category.name}">Kids </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                    <!-- Tab Contetn Start -->
+                    <div class="tab-content" th:remove="all-but-first">
+                        <div th:id="${category.name}" th:class="${index.index} == 0 ? 'tab-pane fade active show' : 'tab-pane fade'" th:each="category,index : ${Kids.categoryFrontList}">
+                            <div class="row">
+                                <div class="col-lg-5 order-2 order-lg-1">
+                                    <div class="banner-site-box mt-10">
+                                        <div class="col-img">
+                                            <a th:href="@{${Kids.category_url}}"><img th:src="@{img\banner\banner-kds.jpg}" alt=""></a>
+                                        </div>
+                                        <!-- Single Product Start -->
+                                        <div class="single-product mt-20">
+                                            <!-- Product Image Start -->
+                                            <div class="pro-img">
+                                                <a th:href="@{${category.fproduct.product_url}}">
+                                                    <img class="primary-img" th:src="@{${category.fproduct.img1_url}}" alt="single-product">
+                                                    <img class="secondary-img" th:src="@{${category.fproduct.img2_url}}" alt="single-product">
+                                                </a>
+                                                <a class="quick_view" title="Quick View"><i class="lnr lnr-magnifier"></i></a>
+                                            </div>
+                                            <!-- Product Image End -->
+                                            <!-- Product Content Start -->
+                                            <div class="pro-content">
+                                                <div class="pro-info">
+                                                    <h4 ><a th:href="@{${category.fproduct.product_url}}" th:text="${category.fproduct.name}"> 1 Utensils and Knives Bloc
+                                                    </a></h4>
+                                                    <p th:if="${category.fproduct.discounted}"><span class="price" th:text="${category.fproduct.price_after_discount}">$188.45</span><del class="prev-price" th:text="${category.fproduct.price}">$190.50</del></p>
+                                                    <p th:unless="${category.fproduct.discounted}"><span class="price" th:text="${category.fproduct.price}">$188.45</span></p>
+                                                    <div th:if="${category.fproduct.discounted}" class="label-product l_sale" th:text="${category.fproduct.discount}">20<span class="symbol-percent">%</span></div>
+                                                </div>
+                                            </div>
+                                            <!-- Product Content End -->
+                                            <span th:if="${category.fproduct.new}" class="sticker-new">new</span>
+                                        </div>
+                                        <!-- Single Product End -->
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 order-1 order-lg-2">
+                                    <!-- Arrivals Product Activation Start Here -->
+                                    <div class="electronics-pro-active2 owl-carousel" th:remove="all-but-first">
+                                        <!-- Double Product Start -->
+                                        <div class="double-product"   th:each="dp : ${category.dlist}">
+                                            <!-- Single Product Start -->
+                                            <div class="single-product" th:each="sp : ${dp.slist}">
+                                                <!-- Product Image Start -->
+                                                <div class="pro-img">
+                                                    <a th:href="@{${sp.product_url}}">
+                                                        <img class="primary-img" th:src="@{${sp.img1_url}}" alt="single-product">
+                                                        <img class="secondary-img" th:src="@{${sp.img2_url}}" alt="single-product">
+                                                    </a>
+                                                    <a  class="quick_view" d title="Quick View"><i class="lnr lnr-magnifier"></i></a>
+                                                </div>
+                                                <!-- Product Image End -->
+                                                <!-- Product Content Start -->
+                                                <div class="pro-content">
+                                                    <div class="pro-info">
+                                                        <h4 ><a th:href="@{${sp.product_url}}" th:text="${sp.name}">Work Lamp Silver Proin</a></h4>
+                                                        <p th:if="${sp.discounted}"><span class="price" th:text="${sp.price_after_discount}">$320.45</span><del class="prev-price" th:text="${sp.price_after_discount}">$400.50</del></p>
+                                                        <p th:unless="${sp.discounted}"><span class="price" th:text="${sp.price}">$320.45</span></p>
+                                                        <div th:if="${sp.discounted}" class="label-product l_sale" th:text="${sp.discount}">30<span class="symbol-percent">%</span></div>
+                                                    </div>
+                                                    <div class="pro-actions">
+                                                        <div class="actions-primary">
+                                                            <a class="AC" title="Add to Cart" th:if="${isLogined}"> + Add To Cart</a>
+                                                            <a  title="Add to Cart" th:unless="${isLogined}" th:href="@{/requirelogin}"> + Add To Cart</a>
+                                                            <input type="text" class="AC_product_id" th:value="${sp.id}" hidden>
+                                                            <input type="text" class="AC_email" th:value="${user_email}" hidden>
+                                                        </div>
+                                                        <div class="actions-secondary">
+                                                            <a class="AC_compare"
+                                                               title="Compare"
+                                                               th:if="${isLogined}"> <i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
+
+                                                            <a title="Compare"
+                                                               th:unless="${isLogined}"
+                                                               th:href="@{/requirelogin}"><i class="lnr lnr-sync"></i> <span>Add To Compare</span></a>
+
+                                                            <a  class="AC_wishlist"
+                                                                title="Wishlist"
+                                                                th:if="${isLogined}"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
+
+                                                            <a  th:href="@{/requirelogin}"
+                                                                title="Wishlist"
+                                                                th:unless="${isLogined}"><i class="lnr lnr-heart"></i> <span>Add to WishList</span></a>
+
+                                                            <input type="text" class="AC_product_id" th:value="${sp.id}" hidden>
+                                                            <input type="text" class="AC_email" th:value="${user_email}" hidden>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Product Content End -->
+                                                <span th:if="${sp.new}" class="sticker-new">new</span>
+                                            </div>
+                                            <!-- Single Product End -->
+                                            <!-- Single Product Start -->
+
+                                            <!-- Single Product End -->
+                                        </div>
+
+                                    </div>
+                                    <!-- Arrivals Product Activation End Here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- #electronics End Here -->
+                    </div>
+                    <!-- Tab Content End -->
+                </div>
+                <!-- main-product-tab-area-->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Kids Products Area End Here -->
+        <!-- Arrivals Products Area Start Here -->
+
+        <!-- Arrivals Products Area End Here -->
+        <!-- Latest Blog Area Start Here -->
+
+        <!-- Latest Blog s Area End Here -->
+
+
+
+        <!-- Support Area Start Here -->
+        <div class="support-area bdr-top">
+            <div class="container">
+                <div class="d-flex flex-wrap text-center">
+                    <div class="single-support">
+                        <div class="support-icon">
+                            <i class="lnr lnr-gift"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Great Value</h6>
+                            <span>Nunc id ante quis tellus faucibus dictum in eget.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                            <i class="lnr lnr-rocket"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Worlwide Delivery</h6>
+                            <span>Quisque posuere enim augue, in rhoncus diam dictum non</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-lock"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Safe Payment</h6>
+                            <span>Duis suscipit elit sem, sed mattis tellus accumsan.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-enter-down"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Shop Confidence</h6>
+                            <span>Faucibus dictum suscipit eget metus. Duis  elit sem, sed.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-users"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>24/7 Help Center</h6>
+                            <span>Quisque posuere enim augue, in rhoncus diam dictum non.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Support Area End Here -->
+        <!-- Footer Area Start Here -->
+        <div th:replace="components/footer :: footer"></div>
+        <!-- Footer Area End Here -->
+        <!-- Quick View Content Start -->
+
+        <!-- Quick View Content End -->
+    </div>
+    <!-- Main Wrapper End Here -->
+
+    <!-- jquery 3.2.1 -->
+    <script th:src="@{js\vendor\jquery-3.2.1.min.js}"></script>
+    <!-- Countdown js -->
+    <script th:src="@{js\jquery.countdown.min.js}"></script>
+    <!-- Mobile menu js -->
+    <script th:src="@{js\jquery.meanmenu.min.js}"></script>
+    <!-- ScrollUp js -->
+    <script th:src="@{js\jquery.scrollUp.js}"></script>
+    <!-- Nivo slider js -->
+    <script th:src="@{js\jquery.nivo.slider.js}"></script>
+    <!-- Fancybox js -->
+    <script th:src="@{js\jquery.fancybox.min.js}"></script>
+    <!-- Jquery nice select js -->
+    <script th:src="@{js\jquery.nice-select.min.js}"></script>
+    <!-- Jquery ui price slider js -->
+    <script th:src="@{js\jquery-ui.min.js}"></script>
+    <!-- Owl carousel -->
+    <script th:src="@{js\owl.carousel.min.js}"></script>
+    <!-- Bootstrap popper js -->
+    <script th:src="@{js\popper.min.js}"></script>
+    <!-- Bootstrap js -->
+    <script th:src="@{js\bootstrap.min.js}"></script>
+    <!-- Plugin js -->
+    <script th:src="@{js\plugins.js}"></script>
+    <!-- Main activaion js -->
+    <script th:src="@{js\main.js}"></script>
+
+    <script th:src="@{js\test.js}"></script>
+</body>
+
+</html>

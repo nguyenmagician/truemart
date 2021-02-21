@@ -1,0 +1,379 @@
+﻿<!doctype html>
+<html class="no-js" lang="zxx" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<div th:replace="components/head :: head"> </div>
+
+<body>
+    <!--[if lte IE 9]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+	<![endif]-->
+
+    <!-- Main Wrapper Start Here -->
+    <div class="wrapper">
+       <!-- Banner Popup Start -->
+        <div th:insert="components/popup :: popup_banner"></div>
+        <!-- Banner Popup End -->        
+       <!-- Newsletter Popup Start -->
+        <div th:insert="components/popup :: popup_wrapper"></div>
+        <!-- Newsletter Popup End -->
+
+        <!-- Main Header Area Start Here -->
+        <div th:replace="components/header :: header"></div>
+        <!-- Main Header Area End Here -->
+        <!-- Categorie Menu & Slider Area Start Here -->
+        <div th:insert="components/category_menu :: category_menu"></div>
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-area mt-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul class="d-flex align-items-center">
+                        <li><a th:href="@{/}">Home</a></li>
+                        <li><a th:href="@{/shop}">Shop</a></li>
+                        <li class="active"><a th:href="@{/product}">Products</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->
+        <!-- Product Thumbnail Start -->
+        <div class="main-product-thumbnail ptb-100 ptb-sm-60">
+            <div class="container">
+                <div class="thumb-bg">
+                    <div class="row">
+                        <!-- Main Thumbnail Image Start -->
+                        <div class="col-lg-5 mb-all-40">
+                            <!-- Thumbnail Large Image start -->
+                            <div class="tab-content" th:remove="all-but-first" >
+                                <div th:each="image,itr : ${product.images}" th:id="|thumb${itr.count}|" th:class="${itr.count == 1}? 'tab-pane fade show active' : 'tab-pane fade'">
+                                    <a data-fancybox="images" th:href="${image}"><img th:src="${image}" alt="product-view"></a>
+                                </div>
+
+                            </div>
+                            <!-- Thumbnail Large Image End -->
+                            <!-- Thumbnail Image End -->
+                            <div class="product-thumbnail mt-15">
+                                <div class="thumb-menu owl-carousel nav tabs-area" role="tablist" th:remove="all-but-first" >
+                                    <a  th:each="image,itr : ${product.images}" th:class="${itr.count == 1}?'active' : ''" data-toggle="tab" th:href="@{'#thumb'+${itr.count}}"><img th:src="${image}" alt="product-thumbnail"></a>
+                                    <a data-toggle="tab" href="#thumb2"><img src="img\products\13.jpg" alt="product-thumbnail"></a>
+                                    <a data-toggle="tab" href="#thumb3"><img src="img\products\15.jpg" alt="product-thumbnail"></a>
+                                    <a data-toggle="tab" href="#thumb4"><img src="img\products\4.jpg" alt="product-thumbnail"></a>
+                                    <a data-toggle="tab" href="#thumb5"><img src="img\products\5.jpg" alt="product-thumbnail"></a>
+                                </div>
+                            </div>
+                            <!-- Thumbnail image end -->
+                        </div>
+                        <!-- Main Thumbnail Image End -->
+                        <!-- Thumbnail Description Start -->
+                        <div class="col-lg-7">
+                            <div class="thubnail-desc fix">
+                                <h3 class="product-header" th:text="${product.name}"></h3>
+                                <div class="rating-summary fix mtb-10">
+                                    <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <div class="rating-feedback">
+                                        <a href="#">(1 review)</a>
+                                        <a href="#">add to your review</a>
+                                    </div>
+                                </div>
+                                <div class="pro-price mtb-30">
+<!--                                 <p class="d-flex align-items-center">-->
+<!--                                     <span class="prev-price">16.51</span>-->
+<!--                                     <span class="price">$15.19</span>-->
+<!--                                     <span class="saving-price">save 8%</span>-->
+<!--                                 </p>-->
+                                <p class="d-flex align-items-center">
+                                    <span class="prev-price" th:if="${product.isDiscountable()}" th:text="${product.price}">$400.50</span>
+                                    <span class="price" th:if="${!product.isDiscountable()}"  th:text="${product.price}">$84.45</span>
+                                    <span class="price" th:if="${product.isDiscountable()}" th:text="${product.priceDiscount}">$320.45</span>
+                                    <span class="saving-price" th:if="${product.isDiscountable()}" th:text="|save ${product.discount}%|">save 8%</span>
+                                </p>
+                                </div>
+                                <p class="mb-20 pro-desc-details" th:text="${product.shortDetails}">Faded short sleeves t-shirt with high neckline. Soft and stretchy material for a comfortable fit. Accessorize with a straw hat and you're ready for summer!</p>
+                                <div class="product-size mb-20 clearfix">
+                                    <label>Size</label>
+                                    <select id="sesize" >
+                                      <option th:each="size : ${sizes}" th:value="${size}" th:text="${size}">S</option>
+
+                                    </select>
+                                </div>
+<!--                                <div class="color clearfix mb-20">-->
+<!--                                    <label>color</label>-->
+<!--                                    <ul class="color-list">-->
+<!--                                        <li>-->
+<!--                                            <a class="orange active" href="#"></a>-->
+<!--                                        </li>-->
+<!--                                        <li>-->
+<!--                                            <a class="paste" href="#"></a>-->
+<!--                                        </li>-->
+<!--                                    </ul>-->
+<!--                                </div>-->
+                                <div class="box-quantity d-flex hot-product2">
+                                    <form action="#">
+                                        <input id="AC_value" class="quantity mr-15" type="number" min="1" value="1" th:max="${product.sll}">
+                                    </form>
+                                    <div class="pro-actions">
+                                        <div class="actions-primary">
+                                            <a class="AC"
+                                               title="Add to Cart"
+                                               th:if="${isLogined}"> + Add To Cart</a>
+
+                                            <a title="Add to Cart"
+                                               th:unless="${isLogined}"
+                                               th:href="@{/requirelogin}"> + Add To Cart</a>
+
+                                            <input type="text" class="AC_product_id" th:value="${product.id}" hidden>
+                                            <input type="text" class="AC_product_sll" th:value="${product.sll}" hidden>
+                                            <input type="text" class="AC_email" th:value="${user_email}" hidden>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="pro-ref mt-20">
+                                    <p th:if="${product.stock}"><span class="in-stock"><i class="ion-checkmark-round"></i> <span th:text="|HAVE ${product.sll} IN STOCK|"></span></span></p>
+                                    <p th:if="${!product.stock}"><span class="out-stock"><i class="ion-close-round"></i> OUT STOCK</span></p>
+                                </div>
+                                <div class="socila-sharing mt-25">
+                                    <ul class="d-flex">
+                                        <li>share</li>
+                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus-official" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Thumbnail Description End -->
+                    </div>
+                    <!-- Row End -->
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Product Thumbnail End -->
+        <!-- Product Thumbnail Description Start -->
+        <div class="thumnail-desc pb-100 pb-sm-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="main-thumb-desc nav tabs-area" role="tablist">
+                            <li><a class="active" data-toggle="tab" href="#dtail">Product Details</a></li>
+                            <li><a data-toggle="tab" href="#review">Reviews 1</a></li>
+                        </ul>
+                        <!-- Product Thumbnail Tab Content Start -->
+                        <div class="tab-content thumb-content border-default">
+                            <div id="dtail" class="tab-pane fade show active">
+                                <p th:text="${product.longDetails}">Fashion has been creating well-designed collections since 2010. The brand offers feminine designs delivering stylish separates and statement dresses which have since evolved into a full ready-to-wear collection in which every item is a vital part of a woman's wardrobe. The result? Cool, easy, chic looks with youthful elegance and unmistakable signature style. All the beautiful pieces are made in Italy and manufactured with the greatest attention. Now Fashion extends to a range of accessories including shoes, hats, belts and more!</p>
+                            </div>
+                            <div id="review" class="tab-pane fade">
+                                <!-- Reviews Start -->
+                                <div class="review border-default universal-padding">
+                                    <div class="group-title">
+                                        <h2>customer review</h2>
+                                    </div>
+                                    <h4 class="review-mini-title">Truemart</h4>
+                                    <ul class="review-list">
+                                        <!-- Single Review List Start -->
+                                        <li>
+                                            <span>Quality</span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <label>Truemart</label>
+                                        </li>
+                                        <!-- Single Review List End -->
+                                        <!-- Single Review List Start -->
+                                        <li>
+                                            <span>price</span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <label>Review by <a href="https://themeforest.net/user/hastech">Truemart</a></label>
+                                        </li>
+                                        <!-- Single Review List End -->
+                                        <!-- Single Review List Start -->
+                                        <li>
+                                            <span>value</span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <label>Posted on 7/20/18</label>
+                                        </li>
+                                        <!-- Single Review List End -->
+                                    </ul>
+                                </div>
+                                <!-- Reviews End -->
+                                <!-- Reviews Start -->
+                                <div class="review border-default universal-padding mt-30">
+                                    <h2 class="review-title mb-30">You're reviewing: <br><span>Faded Short Sleeves T-shirt</span></h2>
+                                    <p class="review-mini-title">your rating</p>
+                                    <ul class="review-list">
+                                        <!-- Single Review List Start -->
+                                        <li>
+                                            <span>Quality</span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </li>
+                                        <!-- Single Review List End -->
+                                        <!-- Single Review List Start -->
+                                        <li>
+                                            <span>price</span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </li>
+                                        <!-- Single Review List End -->
+                                        <!-- Single Review List Start -->
+                                        <li>
+                                            <span>value</span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </li>
+                                        <!-- Single Review List End -->
+                                    </ul>
+                                    <!-- Reviews Field Start -->
+                                    <div class="riview-field mt-40">
+                                        <form autocomplete="off" action="#">
+                                            <div class="form-group">
+                                                <label class="req" for="sure-name">Nickname</label>
+                                                <input type="text" class="form-control" id="sure-name" required="required">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="req" for="subject">Summary</label>
+                                                <input type="text" class="form-control" id="subject" required="required">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="req" for="comments">Review</label>
+                                                <textarea class="form-control" rows="5" id="comments" required="required"></textarea>
+                                            </div>
+                                            <button type="submit" class="customer-btn" disabled>Submit Review</button>
+                                        </form>
+                                    </div>
+                                    <!-- Reviews Field Start -->
+                                </div>
+                                <!-- Reviews End -->
+                            </div>
+                        </div>
+                        <!-- Product Thumbnail Tab Content End -->
+                    </div>
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Product Thumbnail Description End -->
+        <!-- Realted Products Start Here -->
+
+        <!-- Realated Products End Here -->
+        <!-- Support Area Start Here -->
+        <div class="support-area bdr-top">
+            <div class="container">
+                <div class="d-flex flex-wrap text-center">
+                    <div class="single-support">
+                        <div class="support-icon">
+                            <i class="lnr lnr-gift"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Great Value</h6>
+                            <span>Nunc id ante quis tellus faucibus dictum in eget.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                            <i class="lnr lnr-rocket"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Worlwide Delivery</h6>
+                            <span>Quisque posuere enim augue, in rhoncus diam dictum non</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-lock"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Safe Payment</h6>
+                            <span>Duis suscipit elit sem, sed mattis tellus accumsan.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-enter-down"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>Shop Confidence</h6>
+                            <span>Faucibus dictum suscipit eget metus. Duis  elit sem, sed.</span>
+                        </div>
+                    </div>
+                    <div class="single-support">
+                        <div class="support-icon">
+                           <i class="lnr lnr-users"></i>
+                        </div>
+                        <div class="support-desc">
+                            <h6>24/7 Help Center</h6>
+                            <span>Quisque posuere enim augue, in rhoncus diam dictum non.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Support Area End Here -->
+        <!-- Footer Area Start Here -->
+        <div th:replace="components/footer :: footer"></div>
+        <!-- Footer Area End Here -->
+        <!-- Quick View Content Start -->
+
+        <!-- Quick View Content End -->
+    </div>
+    <!-- Main Wrapper End Here -->
+
+    <!-- jquery 3.2.1 -->
+    <script src="js\vendor\jquery-3.2.1.min.js"></script>
+    <!-- Countdown js -->
+    <script src="js\jquery.countdown.min.js"></script>
+    <!-- Mobile menu js -->
+    <script src="js\jquery.meanmenu.min.js"></script>
+    <!-- ScrollUp js -->
+    <script src="js\jquery.scrollUp.js"></script>
+    <!-- Nivo slider js -->
+    <script src="js\jquery.nivo.slider.js"></script>
+    <!-- Fancybox js -->
+    <script src="js\jquery.fancybox.min.js"></script>
+    <!-- Jquery nice select js -->
+    <script src="js\jquery.nice-select.min.js"></script>
+    <!-- Jquery ui price slider js -->
+    <script src="js\jquery-ui.min.js"></script>
+    <!-- Owl carousel -->
+    <script src="js\owl.carousel.min.js"></script>
+    <!-- Bootstrap popper js -->
+    <script src="js\popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="js\bootstrap.min.js"></script>
+    <!-- Plugin js -->
+    <script src="js\plugins.js"></script>
+    <!-- Main activaion js -->
+    <script src="js\main.js"></script>
+</body>
+
+</html>
